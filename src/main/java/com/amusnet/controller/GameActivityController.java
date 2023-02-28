@@ -7,6 +7,7 @@ import com.amusnet.model.CustomException;
 import com.amusnet.service.GameActivityService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,7 +27,7 @@ public class GameActivityController {
     @PostMapping
     public ResponseEntity<GameActivityResponse> createGameActivity(@RequestBody GameActivityRequest request) throws CustomException {
         GameActivityResponse response = gameActivityService.createGameActivity(request);
-        return ResponseEntity.ok(response);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
 }

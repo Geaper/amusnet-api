@@ -71,7 +71,7 @@ public class GameActivityControllerTest {
         MvcResult result = mockMvc.perform(post("/activity/game")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(new ObjectMapper().writeValueAsString(request)))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andReturn();
 
         // Then
