@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "258a42c0-8d98-44c0-ab0b-03df83dd7157",
+		"name": "Amusnet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Game Activity",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"gameActivityId\": \"987654332\",\r\n \"betAmount\": 10.50,\r\n \"currency\": \"EUR\",\r\n \"playerId\": \"123456789\",\r\n \"gameId\": \"45678\"\r\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api.url}}/activity/game",
+					"host": [
+						"{{api.url}}"
+					],
+					"path": [
+						"activity",
+						"game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Player Game Activity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api.url}}/activity/player/123456789",
+					"host": [
+						"{{api.url}}"
+					],
+					"path": [
+						"activity",
+						"player",
+						"123456789"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OAS",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api.url",
+			"value": "http://localhost:8081/amusnet",
+			"type": "default"
+		}
+	]
+}
