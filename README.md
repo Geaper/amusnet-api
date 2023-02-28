@@ -6,7 +6,7 @@ The API creates some dummy data on start just for testing.
 
 ## Documentation
 
-Inside ``./oas`` there is a Postman collection if required
+Inside ``./postman`` there is a Postman collection if required
 
 ## Build
 
