@@ -1,6 +1,6 @@
 ## Description
 
-API is built with caching and PostgreSQL
+API is built with PostgreSQL
 Nothing is encrypted and the database should be created using the same config as `application.properties`
 The API creates some dummy data on start just for testing.
 

@@ -20,7 +20,6 @@ public class PlayerActivityService {
     @Autowired
     private PlayerActivityMapper playerActivityMapper;
 
-    @Cacheable(value = "playerActivityCache", key = "#playerId")
     public Page<PlayerActivityResponse> getPlayerActivity(String playerId, Pageable pageable) {
         Page<GameActivity> gameActivityPage = gameActivityRepository.findByPlayerPlayerId(playerId, pageable);
         return new PageImpl<>(gameActivityPage.stream().map(playerActivityMapper::toDto).collect(Collectors.toList()));

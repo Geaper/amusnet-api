@@ -12,7 +12,6 @@ import com.amusnet.repository.GameActivityRepository;
 import com.amusnet.repository.GameRepository;
 import com.amusnet.repository.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
@@ -62,11 +61,6 @@ public class GameActivityService {
         gameActivity.setPlayerBalanceAfter(Math.round(gameActivity.getPlayer().getBalance() * 100) / 100.0);
         // Save to DB
         gameActivity = gameActivityRepository.save(gameActivity);
-        // Evict the playerActivityCache cache
-        Cache playerActivityCache = cacheManager.getCache("playerActivityCache");
-        if (playerActivityCache != null) {
-            playerActivityCache.evict(request.getPlayerId());
-        }
         // Set response
         return gameActivityMapper.toDto(gameActivity);
     }
